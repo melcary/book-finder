@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search results | Book Finder</title>
+    <meta name="description" content="Browse Book Finder search results: covers, titles, authors, and ratings.">
+    <meta name="author" content="Mel Cary">
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <header class="site-header">
+      <div class="container">
+        <a class="brand" href="index.html">
+          <img src="assets/favicon.svg" alt="" width="32" height="32" />
+          Book Finder
+        </a>
+        <nav class="main-nav" aria-label="Main navigation">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="results.html" aria-current="page">Results</a></li>
+            <li><a href="detail.html">Detail</a></li>
+          </ul>
+        </nav>
+        <button class="hamburger" id="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" aria-label="Toggle menu"></button>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <div class="container">
+        <div class="page-heading">
+          <h1 id="results-heading">Search results</h1>
+          <p class="page-heading__meta">Results are pulled live from Google Books.</p>
+        </div>
+
+        <div class="toolbar">
+          <form class="search-form" id="results-search-form" role="search">
+            <div class="search-form__field">
+              <label class="sr-only" for="results-search-input">Search by title, author, or ISBN</label>
+              <input
+                type="search"
+                id="results-search-input"
+                name="q"
+                placeholder="Search by title, author, or ISBN…"
+                autocomplete="off"
+              />
+            </div>
+            <button class="btn btn--primary" type="submit">Search</button>
+          </form>
+        </div>
+
+        <section class="results-grid" id="results-grid" aria-live="polite" aria-busy="false">
+          <!-- Book cards are generated dynamically by js/ui/renderSearchResults.js -->
+        </section>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <p>WDD 330 project by Mel Cary. Data from Google Books &amp; Open Library.</p>
+    </footer>
+
+    <script type="module" src="js/pages/results.js"></script>
+  </body>
+</html>

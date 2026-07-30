@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book detail | Book Finder</title>
+    <meta name="description" content="Book Finder detail view: description, editions, and author information for a single book.">
+    <meta name="author" content="Mel Cary">
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <header class="site-header">
+      <div class="container">
+        <a class="brand" href="index.html">
+          <img src="assets/favicon.svg" alt="" width="32" height="32">
+          Book Finder
+        </a>
+        <nav class="main-nav" aria-label="Main navigation">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="results.html">Results</a></li>
+            <li><a href="detail.html" aria-current="page">Detail</a></li>
+          </ul>
+        </nav>
+        <button class="hamburger" id="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" aria-label="Toggle menu"></button>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <div class="container">
+        <div class="page-heading">
+          <h1>Book detail</h1>
+          <p class="page-heading__meta" id="detail-meta">
+            Select a book from the search results to see its full detail view.
+          </p>
+        </div>
+
+        <!--
+          Week 5: static empty state only. From Week 6 on, this panel is
+          replaced dynamically by js/ui/renderBookDetail.js and
+          js/ui/renderAuthorDetail.js with data merged from Google Books
+          and Open Library.
+        -->
+        <section class="state-panel" aria-live="polite">
+          <h2>No book selected yet</h2>
+          <p>
+            Go to <a href="results.html">Results</a> and click on a book cover or title to open
+            its detail page here.
+          </p>
+        </section>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <p>WDD 330 project by Mel Cary. Data from Google Books &amp; Open Library.</p>
+    </footer>
+
+    <script type="module" src="js/pages/detail.js"></script>
+  </body>
+</html>

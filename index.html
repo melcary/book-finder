@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Finder | Search books, editions, and authors in one place</title>
+    <meta name="author" content="Mel Cary">
+    <meta name="description" content="Book Finder lets you search books by title, author, or ISBN and see descriptions, ratings, editions, and author bios in one place.">
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <header class="site-header">
+      <div class="container">
+        <a class="brand" href="index.html">
+          <img src="assets/favicon.svg" alt="" width="32" height="32" />
+          Book Finder
+        </a>
+        <nav class="main-nav" aria-label="Main navigation">
+          <ul>
+            <li><a href="index.html" aria-current="page">Home</a></li>
+            <li><a href="results.html">Results</a></li>
+            <li><a href="detail.html">Detail</a></li>
+          </ul>
+        </nav>
+         <button class="hamburger" id="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" aria-label="Toggle menu"></button>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <section class="hero container">
+        <p class="hero__eyebrow">Search · Discover · Read more</p>
+        <h1>Find your next book in seconds</h1>
+        <p class="hero__subtitle">
+          Search by title, author, or ISBN to see descriptions, ratings, page counts, editions,
+          and author details pulled from Google Books and Open Library into one place.
+        </p>
+
+        <form class="search-form hero__search" id="home-search-form" role="search">
+          <div class="search-form__field">
+            <label class="sr-only" for="home-search-input">Search by title, author, or ISBN</label>
+            <input
+              type="search"
+              id="home-search-input"
+              name="q"
+              placeholder="Try “Circe”, “Octavia Butler”, or an ISBN…"
+              autocomplete="off"
+              required>
+          </div>
+          <button class="btn btn--primary" type="submit">Search</button>
+        </form>
+
+        <div class="hero__actions">
+          <button class="btn btn--secondary" type="button" disabled title="Coming in Week 6">
+            Surprise me
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>WDD 330 project by Mel Cary. Data from Google Books &amp; Open Library.</p>
+    </footer>
+    <script type="module" src="js/pages/home.js"></script>
+  </body>
+</html>
