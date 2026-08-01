@@ -1,0 +1,13 @@
+{
+  "name": "book-finder",
+  "version": "0.1.0",
+  "description": "WDD 330 final project — search books via Google Books & Open Library APIs.",
+  "type": "module",
+  "scripts": {
+    "lint": "eslint .",
+    "start": "npx serve ."
+  },
+  "devDependencies": {
+    "eslint": "^9.9.0"
+  }
+}
