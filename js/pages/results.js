@@ -1,5 +1,9 @@
 import { qs, renderErrorState } from "../utils/domHelpers.js";
+import { debounce } from "../utils/debounce.js";
+import { initNavToggle } from "../utils/navToggle.js";
+import { showLoading } from "../ui/animations.js";
 import { renderSearchResults } from "../ui/renderSearchResults.js";
+import { SearchManager } from "../services/SearchManager.js";
 
 const LAST_QUERY_KEY = "bookfinder:lastQuery";
 const DEBOUNCE_DELAY = 450;
