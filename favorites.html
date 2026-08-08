@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Book Finder | Search books, editions, and authors in one place</title>
+    <title>Favorites | Book Finder</title>
     <meta name="author" content="Mel Cary">
     <meta name="description" content="Book Finder lets you search books by title, author, or ISBN and see descriptions, ratings, editions, and author bios in one place.">
     <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
@@ -25,50 +25,31 @@
         </a>
         <nav class="main-nav" id="primary-navigation" aria-label="Main navigation">
           <ul>
-            <li><a href="index.html" aria-current="page">Home</a></li>
+            <li><a href="index.html">Home</a></li>
             <li><a href="results.html">Results</a></li>
             <li><a href="detail.html">Detail</a></li>
-            <li><a href="favorites.html">Favorites</a></li>
+            <li><a href="favorites.html" aria-current="page">Favorites</a></li>
           </ul>
         </nav>
          <button class="hamburger" id="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" aria-label="Toggle menu"></button>
       </div>
     </header>
-
     <main id="main-content">
-      <section class="hero container">
-        <p class="hero__eyebrow">Search · Discover · Read more</p>
-        <h1>Find your next book in seconds</h1>
-        <p class="hero__subtitle">
-          Search by title, author, or ISBN to see descriptions, ratings, page counts, editions,
-          and author details pulled from Google Books and Open Library into one place.
-        </p>
-
-        <form class="search-form hero__search" id="home-search-form" role="search">
-          <div class="search-form__field">
-            <label class="sr-only" for="home-search-input">Search by title, author, or ISBN</label>
-            <input
-              type="search"
-              id="home-search-input"
-              name="q"
-              placeholder="Try “Circe”, “Octavia Butler”, or an ISBN…"
-              autocomplete="off"
-              required>
-          </div>
-          <button class="btn btn--primary" type="submit">Search</button>
-        </form>
-
-        <div class="hero__actions">
-          <button class="btn btn--secondary" id="surprise-btn" type="button">
-            Surprise me
-          </button>
+      <div class="container">
+        <div class="page-heading">
+          <h1>Favorites</h1>
+          <p class="page-heading__meta">Saved on this device, stored in your browser's local storage.</p>
         </div>
-      </section>
+
+        <section class="results-grid" id="favorites-grid" aria-live="polite">
+          <!-- Favorite cards are generated dynamically by js/pages/favorites.js -->
+        </section>
+      </div>
     </main>
 
     <footer class="site-footer">
       <p>WDD 330 project by Mel Cary. Data from Google Books &amp; Open Library.</p>
     </footer>
-    <script type="module" src="js/pages/home.js"></script>
+    <script type="module" src="js/pages/favorites.js"></script>
   </body>
 </html>

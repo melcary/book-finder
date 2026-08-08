@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-US">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +7,8 @@
     <meta name="description" content="Browse Book Finder search results: covers, titles, authors, and ratings.">
     <meta name="author" content="Mel Cary">
     <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
       href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Inter:wght@400;500;600&display=swap"
       rel="stylesheet">
@@ -26,6 +28,7 @@
             <li><a href="index.html">Home</a></li>
             <li><a href="results.html" aria-current="page">Results</a></li>
             <li><a href="detail.html">Detail</a></li>
+            <li><a href="favorites.html">Favorites</a></li>
           </ul>
         </nav>
         <button class="hamburger" id="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" aria-label="Toggle menu"></button>
@@ -53,6 +56,24 @@
             </div>
             <button class="btn btn--primary" type="submit">Search</button>
           </form>
+          <div class="toolbar__controls">
+            <label class="toolbar__control">
+              <span class="sr-only">Sort results</span>
+              <select id="sort-select">
+                <option value="relevance">Sort: Relevance</option>
+                <option value="title-asc">Title A–Z</option>
+                <option value="title-desc">Title Z–A</option>
+                <option value="rating-desc">Highest rated</option>
+              </select>
+            </label>
+
+            <label class="toolbar__control">
+              <span class="sr-only">Filter by category</span>
+              <select id="category-select">
+                <option value="">All categories</option>
+              </select>
+            </label>
+          </div>
         </div>
 
         <section class="results-grid" id="results-grid" aria-live="polite" aria-busy="false">
