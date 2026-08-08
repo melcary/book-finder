@@ -13,6 +13,9 @@ export class Book {
     publishedDate = "",
     previewLink = null,
     source = "google-books",
+    subjects = [],
+    openLibraryWorkKey = null,
+    openLibraryAuthorKeys = [],
   }) {
     this.id = id;
     this.title = title || "Untitled";
@@ -25,11 +28,34 @@ export class Book {
     this.publishedDate = publishedDate;
     this.previewLink = previewLink;
     this.source = source;
+    this.subjects = subjects;
+    this.openLibraryWorkKey = openLibraryWorkKey;
+    this.openLibraryAuthorKeys = openLibraryAuthorKeys;
   }
 
 
   get authorLabel() {
     return this.authors.length ? this.authors.join(", ") : "Unknown author";
+  }
+  get displayTags() {
+    const merged = [...this.categories, ...this.subjects];
+    const unique = [...new Set(merged.map((tag) => tag.trim()).filter(Boolean))];
+    return unique.slice(0, 8);
+  }
+   enrichWithOpenLibrary(olDoc, olWork = null) {
+    if (!olDoc) return this;
+
+    this.openLibraryWorkKey = olDoc.key ?? this.openLibraryWorkKey;
+    this.openLibraryAuthorKeys = olDoc.author_key ?? this.openLibraryAuthorKeys;
+    this.subjects = olDoc.subject ?? this.subjects;
+
+    if (!this.description && olWork) {
+      const workDescription = olWork.description;
+      this.description =
+        typeof workDescription === "string" ? workDescription : workDescription?.value ?? "";
+    }
+
+    return this;
   }
 
   static fromGoogleBooks(volume) {
