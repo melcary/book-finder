@@ -44,10 +44,17 @@ function populateCategoryOptions(categorySelect, books) {
     option.textContent = category;
     categorySelect.append(option);
   });
+
   if (categories.includes(previousValue)) {
     categorySelect.value = previousValue;
   }
 }
+
+function filterBooks(books, category) {
+  if (!category) return books;
+  return books.filter((book) => book.categories.includes(category));
+}
+
 function sortBooks(books, sortBy) {
   const sorted = [...books];
   switch (sortBy) {

@@ -1,4 +1,7 @@
 import { clearElement, createElement, renderEmptyState } from "../utils/domHelpers.js";
+import { FavoritesManager } from "../services/FavoritesManager.js";
+
+const favoritesManager = new FavoritesManager();
 
 export function renderSearchResults(container, books, query = "") {
   clearElement(container);
@@ -48,10 +51,47 @@ function buildCard(book) {
       })
     );
   }
+  const card = createElement("a", {
+      className: "book-card",
+      attrs: { href: `detail.html?id=${encodeURIComponent(book.id)}` },
+      children: [coverWrap, body],
+    });
+  
+    card.append(buildFavoriteToggle(book));
+  
+    return card;
+}
+  function buildFavoriteToggle(book) {
+    const isFavorite = favoritesManager.isFavorite(book.id);
+  
+    const button = createElement("button", {
+      className: `favorite-toggle${isFavorite ? " is-favorite" : ""}`,
+      attrs: {
+        type: "button",
+        "aria-pressed": String(isFavorite),
+        "aria-label": favoriteLabel(book.title, isFavorite),
+      },
+      text: "♥",
+    });
 
-  return createElement("a", {
-    className: "book-card",
-    attrs: { href: `detail.html?id=${encodeURIComponent(book.id)}` },
-    children: [coverWrap, body],
+  
+  button.addEventListener("click", (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+
+    const nowFavorite = favoritesManager.toggle(book);
+    button.classList.toggle("is-favorite", nowFavorite);
+    button.classList.add("favorite-toggle--pulse");
+    button.addEventListener("animationend", () => button.classList.remove("favorite-toggle--pulse"), {
+      once: true,
+    });
+    button.setAttribute("aria-pressed", String(nowFavorite));
+    button.setAttribute("aria-label", favoriteLabel(book.title, nowFavorite));
   });
+
+  return button;
+}
+
+function favoriteLabel(title, isFavorite) {
+  return isFavorite ? `Remove ${title} from favorites` : `Add ${title} to favorites`;
 }

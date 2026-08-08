@@ -34,16 +34,22 @@
 
 html {
   color-scheme: light;
+   height: 100%;
 }
 
 body {
   margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
   font-family: var(--font-body);
   background-color: var(--floral-white);
   color: var(--prussian-blue);
   line-height: 1.55;
 }
-
+main {
+  flex: 1;
+}
 img {
   max-width: 100%;
   display: block;
@@ -305,7 +311,7 @@ ul {
 }
 
 .toolbar__control select {
-  padding: 0.6rem 0.85rem;
+  padding: 0.85rem 1rem;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-control);
   background-color: var(--color-surface);

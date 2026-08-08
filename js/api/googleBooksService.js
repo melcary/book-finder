@@ -25,8 +25,10 @@ export async function searchBooks(query, options = {}) {
 }
 
 export async function getVolumeById(volumeId) {
-  const response = await fetch(`${BASE_URL}/${encodeURIComponent(volumeId)}`);
-    url.searchParams.set("key", API_KEY);
+  const url = new URL(`${BASE_URL}/${encodeURIComponent(volumeId)}`);
+  if (API_KEY) url.searchParams.set("key", API_KEY);
+
+  const response = await fetch(url.toString());
 
   if (!response.ok) {
     throw new Error(`Google Books API error: ${response.status} ${response.statusText}`);
