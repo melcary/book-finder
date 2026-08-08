@@ -11,8 +11,8 @@ export async function searchBooks(query, options = {}) {
     const url = new URL(BASE_URL);
     url.searchParams.set("q", trimmedQuery);
     url.searchParams.set("maxResults", String(Math.min(maxResults, 40)));
-  url.searchParams.set("startIndex", String(startIndex));
-   url.searchParams.set("key", API_KEY);
+    url.searchParams.set("startIndex", String(startIndex));
+    url.searchParams.set("key", API_KEY);
 
     const response = await fetch(url.toString());
 
